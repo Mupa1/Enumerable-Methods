@@ -18,4 +18,14 @@ module Enumerable
       i += 1
     end
   end
+
+  def my_select
+    return to_enum unless block_given?
+
+    selected = []
+    my_each do |item|
+      selected.push(item) if yield(item)
+    end
+    selected
+  end
 end
