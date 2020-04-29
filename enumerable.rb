@@ -3,8 +3,8 @@ module Enumerable
     return to_enum unless block_given?
 
     i = 0
-    while i < length
-      yield(self[i])
+    while i < size
+      yield(to_a[i])
       i += 1
     end
   end
