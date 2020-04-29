@@ -28,4 +28,16 @@ module Enumerable
     end
     selected
   end
+
+  def my_all?(arg = nil)
+    case
+    when block_given?
+      my_each { |i| return false unless yield(i) }
+    when arg.nil?
+      my_each { |i| return false unless i }
+    else
+      my_each { |i| return false unless arg == i }
+    end
+    true
+  end
 end

@@ -25,7 +25,6 @@
 # p [-8, -9, -6].my_all? { |n| n < 0 } # => true
 # p [3, 5, 8, 11].my_all? { |n| n.odd? } # => false
 # p [-8, -9, -6, 0].my_all? { |n| n < 0 } # => false
-# # test cases required by tse reviewer
 # p [1,2,3,4,5].my_all?(3) # => false
 # p [1, 2.5,'a', 3].my_all?(Integer)# => false
 # p ['dog', 'door', 'rod', 'blade'].my_all?(/o/) # => false
@@ -39,7 +38,6 @@
 # p ["q", "r", "s", "i"].my_any? { |char| "aeiou".include?(char) } # => true
 # p [7, 11, 3, 5].my_any? { |n| n.even? } # => false
 # p ["q", "r", "s", "t"].my_any? { |char| "aeiou".include?(char) } # => false
-# #test cases required by tse reviewer
 # p [nil, false, nil, false].my_any? # => false
 # p [1, nil, false].my_any?(Integer) # => true
 # p ['dog', 'door', 'rod', 'blade'].my_any?(/z/) # => false
@@ -52,7 +50,6 @@
 # p ["sushi", "pizza", "burrito"].my_none? { |word| word[0] == "a" } # => true
 # p [3, 5, 4, 7, 11].my_none? { |n| n.even? } # => false
 # p ["asparagus", "sushi", "pizza", "apple", "burrito"].my_none? { |word| word[0] == "a" } # => false
-# # test cases required by tse reviewer
 # p [nil, false, nil, false].my_none? # => true
 # p [1, 2 ,3].my_none? # => false
 # p [1, 2 ,3].my_none?(String) # => true
@@ -65,7 +62,6 @@
 # p [1,4,3,8].my_count { |n| n.even? } # => 2
 # p ["DANIEL", "JIA", "KRITI", "dave"].my_count { |s| s == s.upcase } # => 3
 # p ["daniel", "jia", "kriti", "dave"].my_count { |s| s == s.upcase } # => 0
-# # test cases required by tse reviewer
 # p [1,2,3].my_count # => 3
 # p [1,1,1,2,3].my_count(1) # => 3
 # puts
