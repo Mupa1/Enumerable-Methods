@@ -36,8 +36,20 @@ module Enumerable
     when arg.nil?
       my_each { |i| return false unless i }
     else
-      my_each { |i| return false unless arg == i }
+      my_each { |i| return false unless arg === i }
     end
     true
+  end
+
+  def my_any?(arg = nil)
+    case
+    when block_given?
+      my_each { |i| return true if yield(i) }
+    when arg.nil?
+      my_each { |i| return true if i }
+    else
+      my_each { |i| return true if arg === i }
+    end
+    false
   end
 end
