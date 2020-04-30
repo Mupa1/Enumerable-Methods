@@ -80,4 +80,14 @@ module Enumerable
     count
   end
   # rubocop:enable Style/CaseEquality
+
+  def my_map(&block)
+    return to_enum unless block_given?
+
+    mapped = []
+    my_each do |item|
+      mapped.push(block.call(item))
+    end
+    mapped
+  end
 end
