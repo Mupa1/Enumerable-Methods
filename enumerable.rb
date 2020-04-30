@@ -65,5 +65,19 @@ module Enumerable
     end
     true
   end
+
+  def my_count(arg = nil)
+    count = 0
+    my_each do |item|
+      if !arg.nil?
+        count += 1 if arg === item
+      elsif block_given?
+        count += 1 if yield(item)
+      else
+        count = length
+      end
+    end
+    count
+  end
   # rubocop:enable Style/CaseEquality
 end
