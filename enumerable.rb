@@ -29,6 +29,7 @@ module Enumerable
     selected
   end
 
+  # rubocop:disable Style/CaseEquality
   def my_all?(arg = nil)
     case
     when block_given?
@@ -52,4 +53,17 @@ module Enumerable
     end
     false
   end
+
+  def my_none?(arg = nil)
+    case
+    when block_given?
+      my_each { |i| return false if yield(i) }
+    when arg.nil?
+      my_each { |i| return false if i }
+    else
+      my_each { |i| return false if arg === i }
+    end
+    true
+  end
+  # rubocop:enable Style/CaseEquality
 end
