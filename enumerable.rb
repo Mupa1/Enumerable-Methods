@@ -81,12 +81,16 @@ module Enumerable
   end
   # rubocop:enable Style/CaseEquality
 
-  def my_map
+  def my_map(proc = nil)
     return to_enum unless block_given?
 
     mapped = []
     my_each do |item|
-      mapped.push(yield(item))
+      if proc.nil?
+        mapped.push(yield(item))
+      else
+        mapped.push(proc.call(item))
+      end
     end
     mapped
   end
