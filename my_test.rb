@@ -82,3 +82,4 @@
 # p [5, 1, 2].my_inject("+") # => 8
 # p (5..10).my_inject(2, :*) # should return 302400
 # p (5..10).my_inject(4) {|prod, n| prod * n} # should return 604800
+# p multiply_els([2,4,5]) #=> 40

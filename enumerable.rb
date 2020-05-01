@@ -90,4 +90,25 @@ module Enumerable
     end
     mapped
   end
+
+  def my_inject(accum = nil, sym = nil)
+    array = to_a
+    result = accum
+    if accum.nil?
+      result = array[0]
+      array[1..-1].my_each { |item| result = yield(result, item) }
+    elsif block_given?
+      array.my_each { |item| result = yield(result, item) }
+    elsif accum && sym
+      array.my_each { |item| result = result.send(sym, item) }
+    else
+      result = array[0]
+      array[1..-1].my_each { |item| result = result.send(accum, item) }
+    end
+    result
+  end
+end
+
+def multiply_els(array)
+  array.my_inject { |multiply, item| multiply * item }
 end
