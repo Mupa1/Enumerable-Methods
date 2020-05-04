@@ -42,10 +42,10 @@ module Enumerable
     true
   end
 
-  def my_any?(arg = nil)
+  def my_any?(arg = nil, &block)
     case
     when block_given?
-      my_each { |i| return true if yield(i) }
+      my_each { |i| return true if block.yield(i) }
     when arg.nil?
       my_each { |i| return true if i }
     else
@@ -54,16 +54,8 @@ module Enumerable
     false
   end
 
-  def my_none?(arg = nil)
-    case
-    when block_given?
-      my_each { |i| return false if yield(i) }
-    when arg.nil?
-      my_each { |i| return false if i }
-    else
-      my_each { |i| return false if arg === i }
-    end
-    true
+  def my_none?(arg = nil, &block)
+    !my_any?(arg, &block)
   end
 
   def my_count(arg = nil)
