@@ -1,6 +1,8 @@
 # Enumerable Methods
 This project involves rebuilding some methods from the Ruby Enumerable Module.
 
+![screenshot](./img/screenshot.png)
+
 ## Methods Rebuilt
 - .each
 - .each_with_index
@@ -17,10 +19,26 @@ This project involves rebuilding some methods from the Ruby Enumerable Module.
 - Ruby
 
 ## Getting Started
-
+- Ensure you have Ruby installed on your computer.
 - ```git clone https://github.com/Mupa1/Enumerable-Methods.git``` to your local computer.
 - git checkout enumerable-methods
 - cd into the folder and open enumerable.rb
+
+## Usage
+Use my enumerable methods like ruby's enumerable methods:
+
+- my_each == each
+- my_each_with_index == each_with_index
+- my_select == select
+- my_count == count
+- my_all == all
+- my_any == any
+- my_none == none
+- my_map == map
+- my_inject == inject
+
+## Automated Test
+No automated test implemented yet for this project.
 
 ## Author
 
